@@ -1,6 +1,6 @@
 # About this repo
 
-This is the Actency Docker image for solr, based on makuk66 work.
+This is the Actency Docker **Drupal** optimized image for solr, based on makuk66 work.
 
 Available tags are:
 - 5.5, latest ([5.5/Dockerfile](https://github.com/Actency/docker-solr/tree/master/5.5/Dockerfile))
