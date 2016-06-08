@@ -3,7 +3,8 @@
 This is the Actency Docker **Drupal** optimized image for solr, based on makuk66 work.
 
 Available tags are:
-- 5.5, latest ([5.5/Dockerfile](https://github.com/Actency/docker-solr/tree/master/5.5/Dockerfile))
+- 6.0, latest ([6.0/Dockerfile](https://github.com/Actency/docker-solr/tree/master/6.0/Dockerfile))
+- 5.5 ([5.5/Dockerfile](https://github.com/Actency/docker-solr/tree/master/5.5/Dockerfile))
 - 5.4 ([5.4/Dockerfile](https://github.com/Actency/docker-solr/tree/master/5.4/Dockerfile))
 - 5.3 ([5.3/Dockerfile](https://github.com/Actency/docker-solr/tree/master/5.3/Dockerfile))
 - 5.2 ([5.2/Dockerfile](https://github.com/Actency/docker-solr/tree/master/5.2/Dockerfile))
