@@ -39,15 +39,15 @@ RUN chmod +x /opt/docker-solr/scripts/*
 
 ENV PATH /opt/solr/bin:/opt/docker-solr/scripts:$PATH
 
-# COPY ./config /temp/solr-drupal-config
-#
-# RUN mkdir -p /opt/solr/server/solr/collection1/conf && \
-#     mkdir -p /opt/solr/server/solr/collection1/data && \
-#     cd /temp/solr-drupal-config && cp -f * /opt/solr/server/solr/collection1/conf/
-#
-# COPY ./core.properties /temp/core.properties
-# RUN cp -f /temp/core.properties /opt/solr/server/solr/collection1/core.properties
-# RUN chown -R solr:solr /opt/solr/server/solr
+COPY ./config /tmp/solr-drupal-config
+
+RUN mkdir -p /opt/solr/server/solr/collection1/conf && \
+    mkdir -p /opt/solr/server/solr/collection1/data && \
+    cd /tmp/solr-drupal-config && cp -f * /opt/solr/server/solr/collection1/conf/
+
+COPY ./core.properties /tmp/core.properties
+RUN cp -f /tmp/core.properties /opt/solr/server/solr/collection1/core.properties
+RUN chown -R solr:solr /opt/solr/server/solr
 
 EXPOSE 8983
 WORKDIR /opt/solr
