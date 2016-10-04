@@ -93,7 +93,7 @@ elif [[ "$1" = 'solr-precreate' ]]; then
     #      docker run -it --rm -P -v $PWD/mycores:/opt/solr/server/solr/mycores solr solr-precreate mycore
     echo "Executing $1 command"
     CORE=${2:-gettingstarted}
-    CONFIG_SOURCE=${3:-'/opt/solr/server/solr/configsets/basic_configs'}
+    CONFIG_SOURCE=${3:-'/opt/solr/server/solr/configsets/data_driven_schema_configs'}
     coresdir="/opt/solr/server/solr/mycores"
     mkdir -p $coresdir
     coredir="$coresdir/$CORE"
@@ -118,7 +118,6 @@ elif [[ "$1" = 'solr-demo' ]]; then
         /opt/solr/bin/solr create -c "$CORE"
         echo "Created $CORE"
         echo "Loading example data"
-        /opt/solr/bin/post -c $CORE example/exampledocs/manufacturers.xml
         /opt/solr/bin/post -c $CORE example/exampledocs/*.xml
         /opt/solr/bin/post -c $CORE example/exampledocs/books.json
         /opt/solr/bin/post -c $CORE example/exampledocs/books.csv
