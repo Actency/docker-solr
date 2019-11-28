@@ -1,8 +1,6 @@
 
 FROM openjdk:11-stretch
 
-USER root
-
 LABEL maintainer="Martijn Koster \"mak-docker@greenhills.co.uk\""
 LABEL repository="https://github.com/docker-solr/docker-solr"
 
@@ -90,8 +88,10 @@ RUN set -e; \
   chown -R "$SOLR_USER:$SOLR_GROUP" /opt/mysolrhome && \
   { command -v gpgconf && gpgconf --kill all || :; } && \
   rm -r "$GNUPGHOME"
-
+  
+  
 COPY --chown=solr:solr scripts /opt/docker-solr/scripts
+RUN chmod -R +x /opt/docker-solr/scripts
 
 # CUSTOM / IMPORT CONFIG SEARCH API SOLR
 COPY ./config /tmp/config-drupal
