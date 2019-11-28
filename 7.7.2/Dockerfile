@@ -1,6 +1,8 @@
 
 FROM openjdk:11-stretch
 
+USER root
+
 LABEL maintainer="Martijn Koster \"mak-docker@greenhills.co.uk\""
 LABEL repository="https://github.com/docker-solr/docker-solr"
 
