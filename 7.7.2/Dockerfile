@@ -106,6 +106,9 @@ RUN cp -f /tmp/core.properties /opt/solr/server/solr/collection1/core.properties
 RUN chown -R solr:solr /opt/solr/server/solr
 # END CUSTOM
 
+# PATCH CVE-2021-44228 : https://www.cert.ssi.gouv.fr/alerte/CERTFR-2021-ALE-022/
+RUN echo 'SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"' >> /opt/solr/bin/solr.in.sh
+
 EXPOSE 8983
 WORKDIR /opt/solr
 USER $SOLR_USER
