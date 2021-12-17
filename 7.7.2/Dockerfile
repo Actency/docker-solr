@@ -108,9 +108,12 @@ RUN chown -R solr:solr /opt/solr/server/solr
 
 # PATCH CVE-2021-44228 : https://www.cert.ssi.gouv.fr/alerte/CERTFR-2021-ALE-022/
 RUN echo 'SOLR_OPTS="$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true"' >> /opt/solr/bin/solr.in.sh
-RUN rm -rf /opt/solr-8.3.1/server/lib/ext/log4j-* && rm -rf /opt/solr/server/lib/ext/log4j-*
-COPY ./bin/ /opt/solr-8.3.1/server/lib/ext/
-COPY ./bin/ /opt/solr/server/lib/ext/
+RUN rm -rf /opt/solr-8.3.1/server/lib/ext/log4j-* /opt/solr/server/lib/ext/log4j-* /opt/solr/contrib/prometheus-exporter/lib/log4j-*
+COPY ./lib/ /opt/solr-8.3.1/server/lib/ext/
+COPY ./lib/ /opt/solr/server/lib/ext/
+COPY ./lib/log4j-slf4j-impl-2.16.0.jar /opt/solr/contrib/prometheus-exporter/lib/
+COPY ./lib/log4j-api-2.16.0.jar /opt/solr/contrib/prometheus-exporter/lib/
+COPY ./lib/log4j-core-2.16.0.jar /opt/solr/contrib/prometheus-exporter/lib/
 
 EXPOSE 8983
 WORKDIR /opt/solr
