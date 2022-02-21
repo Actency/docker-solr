@@ -1,0 +1,13 @@
+version: '3'
+services:
+  solr:
+    image: actency/docker-solr:8.11
+    ports:
+     - "8983:8983"
+    volumes:
+      - data:/var/solr
+    command:
+      - solr-precreate
+      - collection1
+volumes:
+  data:
