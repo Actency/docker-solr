@@ -10,6 +10,7 @@ COPY ./core.properties /opt/solr/server/solr/configsets/drupal8/conf/core.proper
 RUN chown -R solr:solr /opt/solr/server/solr
 
 RUN precreate-core collection1
+RUN chown -R solr:solr /var/solr/data
 
 USER solr
 # END CUSTOM
