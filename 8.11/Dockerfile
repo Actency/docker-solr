@@ -9,8 +9,8 @@ COPY ./config /opt/solr/server/solr/configsets/drupal8/conf
 COPY ./core.properties /opt/solr/server/solr/configsets/drupal8/conf/core.properties
 RUN chown -R solr:solr /opt/solr/server/solr
 
-RUN precreate-core collection1
-RUN chown -R solr:solr /var/solr/data
+RUN precreate-core collection1 /opt/solr/server/solr/configsets/drupal8
+RUN mkdir -p /var/solr/data/collection1/data && chown -R solr:solr /var/solr/data
 
 USER solr
 # END CUSTOM
