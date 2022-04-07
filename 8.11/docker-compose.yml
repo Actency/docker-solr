@@ -1,7 +1,7 @@
 version: '3'
 services:
   solr:
-    image: af5e47381ec97
+    build: .
     ports:
      - "8983:8983"
     command:
